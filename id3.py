@@ -1,14 +1,12 @@
 from math import log
 
 # data structures
-'''dataSet = m * (n+1) matrix. M entries, N features, 1 class label
-
-	features = list of feature names
-
-	classList = list of classes, duplicate elements
+'''
+    dataSet = m * (n+1) matrix. M entries, N features, 1 class label
+    features = list of feature names
+    classList = list of classes, duplicate elements
 
 '''
-
 
 #Pseudo Code
 '''
@@ -47,8 +45,6 @@ def treeGrowth(dataSet, features):
 	return myTree
 
 
-
-
 #return majority of the class list
 #class with the most votes 
 def classify(classList):
@@ -61,13 +57,12 @@ def classify(classList):
 	return sortedClassCount[0][0]
 
 
-
 def findBestSplit(dataSet):
 	numFeatures = len(dataSet[0])-1
 	baseEntropy= calcShannonEnt(dataSet)
 	bestInfoGain =0.0
 	bestFeat =-1
-
+	#Calculate info gain
 	for i in range(numFeatures):
 		featValues = [example[i] for example in dataSet]
 		uniqueFeatValues = set(featValues)
@@ -109,13 +104,11 @@ def splitDataSet(dataSet,feat,values):
 			retDataSet.append(reducedFeatVec)
 	return retDataSet
 
-
-
+#predict function for new datast
 def predict(tree, newObject):
 	while(isinstance(tree,dict)):
 		key = tree.keys()[0]
 		tree = tree[key][newObject]
-
-		return tree
+	return tree
 
 
