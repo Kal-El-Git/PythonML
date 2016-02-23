@@ -1,3 +1,4 @@
+# K Nearest Neighbor classifier
 import numpy as np
 
 def distance(p0,p1):
